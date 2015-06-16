@@ -26,3 +26,7 @@ The server and client log files will be in the directory where you ran test.py. 
     cd app/
     python test.py
     ls -lt reports/
+
+##Viewing the reports
+
+The reports must be opened in a browser from the directory where they are saved (css is lined relatively).
