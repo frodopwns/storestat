@@ -1,0 +1,8 @@
+*.pyc
+*.log
+.idea
+.vagrant
+vagrant_ansible_inventory_default
+app/media
+app/reports/*
+!app/reports/media
