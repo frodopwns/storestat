@@ -30,3 +30,16 @@ The server and client log files will be in the directory where you ran test.py. 
 ##Viewing the reports
 
 The reports must be opened in a browser from the directory where they are saved (css is lined relatively).
+
+##Configuration
+
+    python client.py --help
+    Usage: client.py [options]
+
+    Options:
+      -h, --help      show this help message and exit
+      --d=DURATION    Number of seconds the test should run (default is 30)
+      --f=FILE_SIZE   max size in bytes for files to be written (default 10000000)
+      --c=CHUNK_SIZE  size of chunks to be written (default 1000000)
+      --dest=DEST     destination to write to (default /tmp)
+      --fqdn=FQDN     server address (default http://localhost:8000)
