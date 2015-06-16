@@ -29,7 +29,7 @@ The server and client log files will be in the directory where you ran test.py. 
 
 ##Viewing the reports
 
-The reports must be opened in a browser from the directory where they are saved (css is lined relatively).
+The reports must be opened in a browser from the directory where they are saved (css is linked relatively).
 
 ##Configuration
 
