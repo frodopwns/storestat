@@ -1,0 +1,23 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+
+    - name: Updates apt cache
+      apt: update_cache=true
+
+    - name: install the necessities
+      apt: pkg={{ item }} state=installed
+      with_items:
+       - vim
+       - redis-server
+       - python-dev
+       - python-pip
+
+    - name: Install Python packages
+      pip: name={{ item }}
+      with_items:
+        - tornado
+        - jinja2
+        - redis
+        - pygal
