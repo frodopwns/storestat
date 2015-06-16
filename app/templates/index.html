@@ -1,0 +1,162 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="../media/css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="../media/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="../media/css/main.css">
+
+        <!--[if lt IE 9]>
+            <script src="../media/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">StoreStat</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+
+      <div class="row">
+             <h1>Report for test {{ test_id }}</h1>
+             <p><strong>duration</strong>: {{ duration }} seconds | <strong>file size</strong>: {{ file_size }} | <strong>chunk size</strong>: {{ chunk_size }} | <strong>destination</strong>: {{ dest }}</p>
+      </div>
+      <!-- Example row of columns -->
+      <div class="hero-unit">
+             <img src="write_rates.svg" />
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Rollovers</h3>
+          <p>{{ rollovers }}</p>
+        </div>
+        <div class="col-md-4">
+          <h3>Heartbeats</h3>
+          <p>{{ heartbeats|length }}</p>
+       </div>
+        <div class="col-md-4">
+          <h3>Stats</h3>
+          <p>{{ usage|length }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Max write speed</h3>
+          <p>{{ max_write }} MB/s</p>
+        </div>
+        <div class="col-md-4">
+          <h3>Min write speed</h3>
+          <p>{{ min_write }} MB/s</p>
+       </div>
+        <div class="col-md-4">
+          <h3>Avg write speed</h3>
+          <p>{{ avg_write }} MB/s</p>
+        </div>
+      </div>
+      <div class="row">
+          <h3>Heartbeats</h3>
+          <div class="col-md-8">
+               <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>
+                        Time elapsed
+                      </th>
+                      <th>
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for beat in heartbeats %}
+                      <tr>
+                          <td>{{ beat }} seconds</td>
+                          <td>beat</td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+               </table>
+          </div>
+      </div>
+        <div class="row">
+          <h3>Resource Usage</h3>
+          <div class="col-md-8">
+               <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>
+                        Time elapsed
+                      </th>
+                      <th>
+                        CPU
+                      </th>
+                      <th>
+                        Mem
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for stat in usage %}
+                      <tr>
+                          <td>{{ stat[0] }} seconds</td>
+                          <td>{{ stat[1] }}%</td>
+                          <td>{{ stat[2] }}%</td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+               </table>
+          </div>
+      </div>
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2015</p>
+      </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
