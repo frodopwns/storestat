@@ -103,7 +103,6 @@ def build_report(db, test_id, dest, file_size, chunk_size):
     test_start = float(db.get("%s:start" % test_id))
     test_stop = float(db.get("%s:stop" % test_id))
     duration = test_stop - test_start
-    time_series = [None for x in range(int(duration))]
 
     #heart beat
     heartbeats = db.lrange("%s:beat" % test_id, 0, -1)
@@ -138,10 +137,6 @@ def build_report(db, test_id, dest, file_size, chunk_size):
             chunk_size=chunk_size
         ))
 
-
-def create_dir(directory):
-    if not os.path.exists(directory):
-        os.makedirs(directory)
 
 
 def main(args):
