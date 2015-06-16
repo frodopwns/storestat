@@ -23,3 +23,6 @@ The server and client log files will be in the directory where you ran test.py. 
 
     sudo apt-get install redis-server python-dev python-pip
     sudo pip install tornado jinja2 redis pygal
+    cd app/
+    python test.py
+    ls -lt reports/
